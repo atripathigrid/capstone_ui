@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Global styles ported verbatim from the original index.html <style>. */
+/* ------------------------------------------------------------------ */
+
+body {
+  background-color: #0d0f10;
+  color: #ffffff;
+  font-family: "Hanken Grotesk", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.intelligence-card {
+  background-color: #141819;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.intelligence-card:hover {
+  transform: translateY(-2px);
+}
+
+.ai-glow {
+  box-shadow: 0 0 20px rgba(92, 224, 208, 0.05);
+  border: 1px solid rgba(92, 224, 208, 0.12);
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #5ce0d0;
+  border-radius: 50%;
+  animation: pulse-animation 2s infinite;
+}
+
+.pulse-critical {
+  animation: pulse-critical-animation 1.5s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(92, 224, 208, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(92, 224, 208, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(92, 224, 208, 0);
+  }
+}
+
+@keyframes pulse-critical-animation {
+  0% {
+    background-color: rgba(242, 139, 130, 0.08);
+  }
+  50% {
+    background-color: rgba(242, 139, 130, 0.02);
+  }
+  100% {
+    background-color: rgba(242, 139, 130, 0.08);
+  }
+}
+
+.hairline-border {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.kinetic-ai-chat {
+  background: #0d0f10;
+  border-left: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0f10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #272b2c;
+  border-radius: 10px;
+}
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+.icon-filled {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+}
