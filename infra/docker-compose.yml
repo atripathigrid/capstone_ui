@@ -1,0 +1,38 @@
+# Local/dev parity — three independently deployable units (Requirement 2).
+# The frontend is fully buildable today; backend + postgres are wired per the
+# backend-contract design and can be filled in without touching the frontend.
+services:
+  frontend:
+    build:
+      context: ../frontend
+    ports:
+      - '8080:80'
+    environment:
+      - VITE_API_BASE_URL=/api
+    depends_on:
+      - backend
+
+  backend:
+    # build: ../backend            # FastAPI uvicorn/gunicorn image (see docs/backend-contract.md)
+    image: salesintel/backend:dev
+    ports:
+      - '8000:8000'
+    environment:
+      - DATABASE_URL=postgresql+psycopg://app:app@postgres:5432/evoforge
+      - JWT_SECRET=change-me-at-deploy
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      - POSTGRES_USER=app
+      - POSTGRES_PASSWORD=app
+      - POSTGRES_DB=evoforge
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

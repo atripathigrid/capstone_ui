@@ -1,7 +1,12 @@
-node_modules
-dist
-dist-ssr
-*.local
-.env
+# OS
 .DS_Store
+
+# Dependencies & build output (any depth)
+node_modules/
+dist/
+dist-ssr/
+
+# Local env / logs
+.env
+*.local
 npm-debug.log*
