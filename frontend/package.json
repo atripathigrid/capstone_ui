@@ -6,7 +6,7 @@
   "description": "EvoForge Revenue AI OS access portal — React + TypeScript port of login_page.html, styled with the SalesIntel design system.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc --noEmit && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx"

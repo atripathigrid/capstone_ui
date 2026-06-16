@@ -1,9 +1,13 @@
-node_modules
-dist
-dist-ssr
-*.local
-.env
-.env.*.local
+# Monorepo-level ignores. Per-package ignores live in each package (e.g. frontend/.gitignore).
 .DS_Store
 *.log
-.vite
+
+# Dependencies / build output anywhere in the tree
+**/node_modules
+**/dist
+**/.vite
+**/*.tsbuildinfo
+
+# Local env files
+**/.env
+**/.env.*.local
